@@ -45,7 +45,7 @@
         <entry file="file://$PROJECT_DIR$/aframe/examples/morralla1.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
-              <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
+              <caret line="2" column="46" lean-forward="true" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="47" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -199,12 +199,12 @@
       <workItem from="1561058665605" duration="772000" />
       <workItem from="1561059479446" duration="270000" />
       <workItem from="1561060453283" duration="1818000" />
-      <workItem from="1561579224658" duration="1115000" />
+      <workItem from="1561579224658" duration="1275000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6512000" />
+    <option name="totallyTimeSpent" value="6672000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1440" y="-96" width="1440" height="877" extended-state="6" />
@@ -349,7 +349,7 @@
     <entry file="file://$PROJECT_DIR$/aframe/examples/morralla1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
+          <caret line="2" column="46" lean-forward="true" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="47" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
