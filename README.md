@@ -1,10 +1,10 @@
 
  # AR.js - Augmented Reality for the Web
  
- - [Morralla] (https://yaotzin68.github.io/arjs/aframe/examples/morralla.html)
- - [Minimal] (https://yaotzin68.github.io/arjs/aframe/examples/minimal.html)
- - [Video] (https://yaotzin68.github.io/arjs/aframe/examples/video.html)
- - [Videosphere] (https://yaotzin68.github.io/arjs/aframe/examples/videosphere.html)
+ - [Morralla](https://yaotzin68.github.io/arjs/aframe/examples/morralla.html)
+ - [Minimal](https://yaotzin68.github.io/arjs/aframe/examples/minimal.html)
+ - [Video](https://yaotzin68.github.io/arjs/aframe/examples/video.html)
+ - [Videosphere](https://yaotzin68.github.io/arjs/aframe/examples/videosphere.html)
 
  [![Augmented Website](https://user-images.githubusercontent.com/252962/27472386-0d11e59a-57f3-11e7-9fa5-34332c5484f7.png)](https://github.com/jeromeetienne/AR.js)
 
