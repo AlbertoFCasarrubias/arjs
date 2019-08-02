@@ -1,6 +1,11 @@
 # aframe-ar
 Augmented reality for a-frame.
 
+- [Morralla] (https://yaotzin68.github.io/arjs/aframe/examples/morralla.html)
+- [Minimal] (https://yaotzin68.github.io/arjs/aframe/examples/minimal.html)
+- [Video] (https://yaotzin68.github.io/arjs/aframe/examples/video.html)
+- [Videosphere] (https://yaotzin68.github.io/arjs/aframe/examples/videosphere.html)
+
 ```html
 <!-- add arjs into your scene -->
 <a-scene arjs>
