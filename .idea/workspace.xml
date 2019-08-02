@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="df6058b0-c8eb-4c92-b7e7-af38acb5100b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aframe/examples/video.html" beforeDir="false" afterPath="$PROJECT_DIR$/aframe/examples/video.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aframe/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/aframe/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aframe/examples/videosphere.html" beforeDir="false" afterPath="$PROJECT_DIR$/aframe/examples/videosphere.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -82,7 +82,7 @@
       <workItem from="1561060453283" duration="1818000" />
       <workItem from="1561579224658" duration="1275000" />
       <workItem from="1564763095725" duration="77000" />
-      <workItem from="1564763274907" duration="1279000" />
+      <workItem from="1564763274907" duration="1459000" />
     </task>
     <servers />
   </component>
