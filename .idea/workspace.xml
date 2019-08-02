@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df6058b0-c8eb-4c92-b7e7-af38acb5100b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/aframe/examples/morralla1.html" beforeDir="false" afterPath="$PROJECT_DIR$/aframe/examples/morralla1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="AR.js-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,8 +32,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/aframe/examples/morralla.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="27" column="19" lean-forward="true" selection-start-line="23" selection-start-column="8" selection-end-line="27" selection-end-column="19" />
+            <state relative-caret-position="375">
+              <caret line="27" column="19" selection-start-line="23" selection-start-column="8" selection-end-line="27" selection-end-column="19" />
               <folding>
                 <element signature="n#div#0;n#body#0;n#!!top" />
               </folding>
@@ -45,7 +45,7 @@
         <entry file="file://$PROJECT_DIR$/aframe/examples/morralla1.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
-              <caret line="2" column="46" lean-forward="true" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="47" />
+              <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="47" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -111,40 +111,20 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1389" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-1440" />
     <option name="y" value="-96" />
-    <option name="width" value="1441" />
-    <option name="height" value="842" />
+    <option name="width" value="1440" />
+    <option name="height" value="877" />
   </component>
+  <component name="ProjectId" id="1OsPKgikUwCKbu2RHo1vZHH3qEY" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="AR.js-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AR.js-master" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AR.js-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AR.js-master" type="462c0819:PsiDirectoryNode" />
-              <item name="aframe" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AR.js-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AR.js-master" type="462c0819:PsiDirectoryNode" />
-              <item name="aframe" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -200,17 +180,17 @@
       <workItem from="1561059479446" duration="270000" />
       <workItem from="1561060453283" duration="1818000" />
       <workItem from="1561579224658" duration="1275000" />
+      <workItem from="1564763095725" duration="77000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6672000" />
+    <option name="totallyTimeSpent" value="6749000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1440" y="-96" width="1440" height="877" extended-state="6" />
-    <editor active="true" />
+    <frame x="-1440" y="-96" width="1440" height="877" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28898427" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28893587" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -305,6 +285,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/aframe/examples/morralla.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="27" column="19" selection-start-line="23" selection-start-column="8" selection-end-line="27" selection-end-column="19" />
+          <folding>
+            <element signature="n#div#0;n#body#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/aframe/demos/demo-hatsune-miku/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
@@ -336,20 +326,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/aframe/examples/morralla.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="27" column="19" lean-forward="true" selection-start-line="23" selection-start-column="8" selection-end-line="27" selection-end-column="19" />
-          <folding>
-            <element signature="n#div#0;n#body#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/aframe/examples/morralla1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="46" lean-forward="true" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="47" />
+          <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="47" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
