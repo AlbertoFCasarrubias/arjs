@@ -9,8 +9,13 @@
 <body style='margin : 0px; overflow: hidden;'>
 
 	<a-scene antialias="true" embedded arjs='trackingMethod: best;'>
+
+        <a-assets>
+            <img id="fondo" src="assets/FichaTecClean.png"> </img>
+        </a-assets>
+
 		<a-marker-camera preset='hiro'>
-            <a-plane position="0 0 0" rotation="-90 0 0" width="1" height="1" color="#7BC8A4"></a-plane>
+            <a-plane position="0 0 0" rotation="-90 0 0" width="1" height="1" color="#fondo"></a-plane>
         </a-marker-camera>
 	</a-scene>
 </body>
