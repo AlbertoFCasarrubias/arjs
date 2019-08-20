@@ -2,6 +2,7 @@
  # AR.js - Augmented Reality for the Web
  - [SAMS](https://yaotzin68.github.io/arjs/aframe/examples/sams.html)
  - [SAMS VR](https://yaotzin68.github.io/arjs/aframe/examples/samsvr.html)
+ - [VR Test](https://yaotzin68.github.io/vr/index.html)
  - [Morralla](https://yaotzin68.github.io/arjs/aframe/examples/morralla.html)
  - [Minimal](https://yaotzin68.github.io/arjs/aframe/examples/minimal.html)
  - [Video](https://yaotzin68.github.io/arjs/aframe/examples/video.html)
