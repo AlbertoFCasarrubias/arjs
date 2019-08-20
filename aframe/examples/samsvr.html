@@ -60,10 +60,12 @@
   var promise = document.querySelector('#sams').play();
   if (promise !== undefined) {
     promise.catch(error => {
-      // Auto-play was prevented
-      // Show a UI element to let the user manually start playback
-      var v = document.querySelector('#sams');
-      v.play();
+
+      window.addEventListener('click', function () {
+        var v = document.querySelector('#sams');
+        v.play();
+      });
+
   }).then(() => {
       // Auto-play started
     });
