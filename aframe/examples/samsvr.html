@@ -8,7 +8,7 @@
 <body>
 <a-scene>
     <a-assets>
-        <video id="sams" autoplay loop="true" src="assets/sams5s.mp4"> </video>
+        <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/sams5s.mp4"> </video>
         <img id="fondo" src="assets/ficha.png">
         <img id="icon" src="assets/icon.png">
         <img id="gluten" src="assets/gluten.png">
@@ -52,7 +52,20 @@
     <a-image material="alphaTest: 0.5" src="#moras" position="-1.4 1.05 -0.6"  width="0.2" height=".2" rotation="0 90 0"></a-image>
     <a-image position="-1.5 1.5 0" rotation="0 90 0" width="2" height="1.3" src="#fondo"></a-image>
 
-    <a-videosphere src="#sams" ></a-videosphere>
+    <a-sky src="#sams"></a-sky>
 </a-scene>
+<script>
+  var promise = document.querySelector('#sams').play();
+  if (promise !== undefined) {
+    promise.catch(error => {
+      // Auto-play was prevented
+      // Show a UI element to let the user manually start playback
+      var v = document.querySelector('#sams');
+      v.play();
+  }).then(() => {
+      // Auto-play started
+    });
+  }
+</script>
 </body>
 </html>
