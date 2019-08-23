@@ -23,6 +23,7 @@
             height: auto;
             display: flex;
             align-items: center;
+            cursor: pointer;
         }
 
         .videoFrame img{
@@ -31,10 +32,27 @@
         }
 
     </style>
+    <script>
+      function openFullscreen() {
+
+        /* Get the element you want displayed in fullscreen mode (a video in this example): */
+        const elem = document.getElementById("video");
+
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) { /* Firefox */
+          elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE/Edge */
+          elem.msRequestFullscreen();
+        }
+      }
+    </script>
 </head>
 <body>
-<div class="videoFrame">
-    <video class="video" controls>
+<div class="videoFrame" onclick="openFullscreen()">
+    <video class="video" controls id="video">
         <source src="assets/cake.mp4" type="video/mp4">
     </video>
     <img src="assets/soporte_video.png">
