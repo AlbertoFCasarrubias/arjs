@@ -50,6 +50,7 @@
     <a-assets>
         <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/test6.mp4"> </video>
         <video id="cakeVideo" poster="assets/still_video.png" autoplay loop src="assets/cake.mp4"> </video>
+        <img id="specs" src="assets/specs.png">
         <img id="fondo" src="assets/ficha.png">
         <img id="circle" src="assets/logoCirculo.png">
         <img id="btnVideo" src="assets/bnVideo.png">
@@ -64,48 +65,13 @@
         <img id="videoStill" src="assets/still_video.png">
     </a-assets>
 
-    <a-entity>
-        <a-text color="#713b10"
-                align="center"
-                baseline="top"
-                rotation="0 180 0"
-                position="0 1.32 1.4"
-                font="assets/arialbd-msdf.json"
-                width="3"
-                negate="false"
-                value="PASTEL DE DURAZNO" ></a-text>
-        <a-text color="black"
-                align="left"
-                baseline="top"
-                rotation="0 180 0"
-                position="0.6 1.65 1.4"
-                font="assets/arial-msdf.json"
-                width="1.2"
-                negate="false"
-                value="PAN DE VAINILLA\n MIX DE TRES LECHES\n CREMA\n CHOCOLATE BLANCO" ></a-text>
-        <a-text color="black"
-                align="left"
-                baseline="top"
-                rotation="0 180 0"
-                position="0.015 1.65 1.4"
-                lineHeight="2"
-                font="assets/arial-msdf.json"
-                width="1.2"
-                negate="false"
-                value="MAZORCA DE CACAO\n DURAZNO EN ALMÍBAR\n PULPA DE DURAZNO\n BLUEBERRIES" ></a-text>
-        <a-image material="alphaTest: 0.5" src="#gluten" position="0.037 1.05 1.4"  width="0.2" height=".2" rotation="0 180 0"></a-image>
-        <a-image material="alphaTest: 0.5" src="#cacao" position="-0.18 1.05 1.4"  width="0.2" height=".2" rotation="0 180 0"></a-image>
-        <a-image material="alphaTest: 0.5" src="#lactosa" position="-0.385 1.05 1.4"  width="0.2" height=".2" rotation="0 180 0"></a-image>
-        <a-image material="alphaTest: 0.5" src="#moras" position="-0.6 1.05 1.4"  width="0.2" height=".2" rotation="0 180 0"></a-image>
-        <a-image position="0 1.5 1.5" rotation="0 180 0" width="2" height="1.3" src="#fondo"></a-image>
-    </a-entity>
-
     <!-- Using the asset management system. -->
 
     <a-image position="2.1 1.44 0.064" rotation="0 -90 0" width="4.4" height="3.1" src="#videoPlayer"></a-image>
     <a-image id="still" position="1.9 1.5 0" rotation="0 -90 0" width="2" height="1.125" src="#videoStill" playvideo></a-image>
     <a-video id="videoPlay" src="#cakeVideo" poster="assets/still_video.png" width="2" height="1.125"   position="2 1.5 0" rotation="0 -90 0" ></a-video>
 
+    <a-curvedimage src="#specs"  width="2" height="2" radius="2" theta-length="80" position="0 1.5 .5" rotation="0 -40 0"></a-curvedimage>
     <a-curvedimage src="#banner"  width="2" height="2" radius="2" theta-length="80" position="-1 1.5 0" rotation="0 -145 0" sams></a-curvedimage>
 
     <a-image src="#circle" position="0 -2 0"  width="6" height="6" rotation="90 180 0"></a-image>
