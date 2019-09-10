@@ -8,7 +8,7 @@
 <!-- start the body of your page -->
 <body style='margin : 0px; overflow: hidden;'>
 
-	<a-scene antialias="true" embedded arjs='trackingMethod: best;'>
+	<a-scene background="color:black" antialias="true" embedded arjs='trackingMethod: best;'>
 
         <a-assets>
             <img id="fondo" src="assets/ficha.png">
@@ -58,6 +58,11 @@
         </a-marker-camera>
         <a-sky color="#000000"></a-sky>
 	</a-scene>
+<style>
+    video{
+        display:none;
+    }
+</style>
 </body>
 
 
