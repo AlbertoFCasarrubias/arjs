@@ -5,6 +5,7 @@
  - [VR Test](https://yaotzin68.github.io/vr/index.html)
  - [VR Test SAMS](https://yaotzin68.github.io/vr/sams1.html)
  - [SAMS Lens](https://yaotzin68.github.io/arjs/aframe/examples/samsBlack.html)
+ - [SAMS Lens 1](https://yaotzin68.github.io/arjs/aframe/examples/samsWhite.html)
  - [Morralla](https://yaotzin68.github.io/arjs/aframe/examples/morralla.html)
  - [Minimal](https://yaotzin68.github.io/arjs/aframe/examples/minimal.html)
  - [Video](https://yaotzin68.github.io/arjs/aframe/examples/video.html)
