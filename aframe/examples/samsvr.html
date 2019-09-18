@@ -45,7 +45,7 @@
     </script>
 </head>
 <body>
-<!--a id="playbutton_1" href="#">Test 8</a-->
+<a id="playbutton_1" href="#">Test 1</a>
 <a-scene cursor="rayOrigin: mouse">
     <a-assets>
         <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/test6.mp4"> </video>
@@ -78,6 +78,8 @@
 
 
     <a-sky src="#sams" rotation="0 90 0"></a-sky>
+
+    <a-camera></a-camera>
 </a-scene>
 <script>
   var promise = document.querySelector('#sams').play();
