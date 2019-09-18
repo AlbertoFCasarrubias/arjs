@@ -47,7 +47,7 @@
     </script>
 </head>
 <body>
-<div id="playbutton_1" >Test 8</div>
+<!--div id="playbutton_1" >Test 8</div-->
 <a-scene cursor="rayOrigin: mouse" id="scene">
     <a-assets>
         <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/test6.mp4"></video>
@@ -159,20 +159,9 @@
 
     if ((document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement !== null) && exitFullscreen) {
       console.log('EXIT');
-      var camera = document.getElementById('camera');
-      //camera.removeAttribute('wasd-controls');
-      //camera.removeAttribute('look-controls');
-      //camera.removeAttribute('camera');
-      camera.parentNode.removeChild(camera);
-
-      var newCamera = document.createElement("a-camera");
-      newCamera.setAttribute('id' , 'camera');
-
-      var scene = document.getElementById('scene');
-      scene.appendChild(newCamera);
-      setCamera();
+      window.reload();
       exitFullscreen = false;
-      getCamera();
+
     } else {
       exitFullscreen = true;
     }
