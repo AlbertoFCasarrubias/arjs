@@ -45,7 +45,7 @@
     </script>
 </head>
 <body>
-<a id="playbutton_1" href="#">Test 2</a>
+<a id="playbutton_1" href="#">Test 3</a>
 <a-scene cursor="rayOrigin: mouse">
     <a-assets>
         <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/test6.mp4"> </video>
@@ -79,7 +79,7 @@
 
     <a-sky src="#sams" rotation="0 90 0"></a-sky>
 
-    <a-camera id="camera" zoom="1"></a-camera>
+    <a-camera id="camera" zoom="1" user-height="0"></a-camera>
 </a-scene>
 <script>
   var promise = document.querySelector('#sams').play();
@@ -109,6 +109,7 @@
       console.log('EXIT FULLSCREEN');
       var camera = document.getElementById('camera');
       camera.setAttribute('zoom' , '1');
+      camera.setAttribute('user-height' , '0');
     }
   }
 
