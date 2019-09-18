@@ -49,7 +49,7 @@
     </script>
 </head>
 <body>
-<div id="playbutton_1" >Test 7</div>
+<div id="playbutton_1" >Test 8</div>
 <a-scene cursor="rayOrigin: mouse">
     <a-assets>
         <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/test6.mp4"></video>
@@ -87,7 +87,7 @@
 
     <a-sky src="#sams" rotation="0 90 0"></a-sky>
 
-    <a-camera id="camera" zoom="1" user-height="0" ></a-camera>
+    <a-camera id="camera" zoom="1" user-height="0" position="0 0 0" camera look-controls wasd-controls></a-camera>
 </a-scene>
 <script>
   var promise = document.querySelector('#sams').play();
@@ -113,16 +113,28 @@
   document.addEventListener('MSFullscreenChange', exitHandler, false);
   document.addEventListener('webkitfullscreenchange', exitHandler, false);
 
+  function setCamera(){
+    var camera = document.getElementById('camera');
+    camera.setAttribute('position' , '0 1.6 0')
+    camera.setAttribute('zoom' , '1')
+    //camera.setAttribute('active' , 'true')
+    //camera.setAttribute('far' , '10000')
+    //camera.setAttribute('fov' , '80')
+    //camera.setAttribute('near' , '0.005')
+    //camera.setAttribute('spectator' , 'false')
+
+
+  }
+
+  setCamera();
+
   function getCamera(){
     var camera = document.getElementById('camera');
-    camera.setAttribute('zoom', '1');
-    camera.setAttribute('user-height', '0');
     console.log(camera, camera.getAttributeNames());
 
     var print = '';
     for (var at of camera.getAttributeNames()) {
       var obj = camera.getAttribute(at);
-      console.log(at, 'obj: ', obj);
       switch (at) {
         case 'camera':
         case 'position':
@@ -130,8 +142,6 @@
         case 'look-controls':
         case 'wasd-controls':
           for(var child of Object.keys(obj)){
-            console.log('CHILD ' , child);
-
             print += at+'->'+child+': ' + obj[child] + ',<br>';
           }
           break;
@@ -156,6 +166,41 @@
   getCamera();
 
   /*
+
+  id: camera,
+
+zoom: 1,
+
+user-height: 0,
+
+camera->zoom: 1,
+camera->active: true,
+camera->far: 10000,
+camera->fov: 80,
+camera->near: 0.005,
+camera->spectator: false,
+position->x: 0,
+position->y: 1.6,
+position->z: 0,
+rotation->x: 0,
+rotation->y: 0,
+rotation->z: 0,
+look-controls->enabled: true,
+look-controls->hmdEnabled: true,
+look-controls->pointerLockEnabled: false,
+look-controls->reverseMouseDrag: false,
+look-controls->reverseTouchDrag: false,
+look-controls->touchEnabled: true,
+wasd-controls->acceleration: 65,
+wasd-controls->adAxis: x,
+wasd-controls->adEnabled: true,
+wasd-controls->adInverted: false,
+wasd-controls->enabled: true,
+wasd-controls->fly: false,
+wasd-controls->wsAxis: z,
+wasd-controls->wsEnabled: true,
+wasd-controls->wsInverted: false,
+
   document.querySelector('#btnVideo')
     .addEventListener('click', function()
     {
