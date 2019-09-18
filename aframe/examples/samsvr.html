@@ -11,7 +11,7 @@
             z-index: 999;
             width: auto;
             height: auto;
-            background: rgba(1,255,1,.6);
+            background: rgba(255,1,1,.6);
         }
     </style>
     <script>
@@ -114,7 +114,7 @@
 
   function setCamera(){
     var camera = document.getElementById('camera');
-    camera.setAttribute('position' , '0 0 0')
+    camera.setAttribute('position' , '0 1.6 0')
     //camera.setAttribute('zoom' , '1')
     //camera.setAttribute('active' , 'true')
     //camera.setAttribute('far' , '10000')
@@ -170,7 +170,7 @@
 
       var scene = document.getElementById('scene');
       scene.appendChild(newCamera);
-
+      setCamera();
       exitFullscreen = false;
       getCamera();
     } else {
