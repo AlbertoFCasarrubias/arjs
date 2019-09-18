@@ -6,11 +6,12 @@
     <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
     <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
     <style>
-        #playbutton_1{
+        #playbutton_1 {
             position: fixed;
             z-index: 999;
-            width:auto;
+            width: auto;
             height: auto;
+            background: rgba(255,255,255,.6);
         }
     </style>
     <script>
@@ -18,38 +19,41 @@
         init: function () {
           this.el.addEventListener("click", (e) => {
             var win = window.open('player.html', '_blank');
-            win.focus();
-        })}
+          win.focus();
+        })
+        }
       });
 
       AFRAME.registerComponent("sams", {
         init: function () {
           this.el.addEventListener("click", (e) => {
             var win = window.open('https://www.sams.com.mx/desechables-e-insumos/platos-desechables-bosco-chicos-180-pzas/000369744?sp=platos', '_blank');
-            win.focus();
-        })}
+          win.focus();
+        })
+        }
       });
 
       AFRAME.registerComponent("playvideo", {
         init: function () {
           this.el.addEventListener("click", (e) => {
             const elem = document.getElementById("cakeVideo");
-            elem.play();
+          elem.play();
 
           const still = document.getElementById("still");
-          still.setAttribute("visible",false);
+          still.setAttribute("visible", false);
 
 
-        })}
+        })
+        }
       });
     </script>
 </head>
 <body>
-<a id="playbutton_1" href="#">Test 5</a>
+<div id="playbutton_1" >Test 7</div>
 <a-scene cursor="rayOrigin: mouse">
     <a-assets>
-        <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/test6.mp4"> </video>
-        <video id="cakeVideo" poster="assets/still_video.png" autoplay loop src="assets/cake.mp4"> </video>
+        <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/test6.mp4"></video>
+        <video id="cakeVideo" poster="assets/still_video.png" autoplay loop src="assets/cake.mp4"></video>
         <img id="specs" src="assets/specs.png">
         <img id="fondo" src="assets/ficha.png">
         <img id="circle" src="assets/logoCirculo.png">
@@ -68,21 +72,22 @@
     <!-- Using the asset management system. -->
 
     <a-image position="2.1 1.44 0.064" rotation="0 -90 0" width="4.4" height="3.1" src="#videoPlayer"></a-image>
-    <a-image id="still" position="1.9 1.5 0" rotation="0 -90 0" width="2" height="1.125" src="#videoStill" playvideo></a-image>
-    <a-video id="videoPlay" src="#cakeVideo" poster="assets/still_video.png" width="2" height="1.125"   position="2 1.5 0" rotation="0 -90 0" ></a-video>
+    <a-image id="still" position="1.9 1.5 0" rotation="0 -90 0" width="2" height="1.125" src="#videoStill"
+             playvideo></a-image>
+    <a-video id="videoPlay" src="#cakeVideo" poster="assets/still_video.png" width="2" height="1.125" position="2 1.5 0"
+             rotation="0 -90 0"></a-video>
 
-    <a-curvedimage src="#specs"  width="2" height="2" radius="2" theta-length="80" position="0 1.5 .5" rotation="0 -40 0"></a-curvedimage>
-    <a-curvedimage src="#banner"  width="2" height="2" radius="2" theta-length="80" position="-1 1.5 0" rotation="0 -145 0" sams></a-curvedimage>
+    <a-curvedimage src="#specs" width="2" height="2" radius="2" theta-length="80" position="0 1.5 .5"
+                   rotation="0 -40 0"></a-curvedimage>
+    <a-curvedimage src="#banner" width="2" height="2" radius="2" theta-length="80" position="-1 1.5 0"
+                   rotation="0 -145 0" sams></a-curvedimage>
 
-    <a-image src="#circle" position="0 -2 0"  width="6" height="6" rotation="90 180 0"></a-image>
+    <a-image src="#circle" position="0 -2 0" width="6" height="6" rotation="90 180 0"></a-image>
 
 
     <a-sky src="#sams" rotation="0 90 0"></a-sky>
 
-    <!--a-camera id="camera" zoom="1" user-height="0"></a-camera-->
-    <a-entity position="0 1.6 0">
-        <a-camera look-controls position="0 0 0"></a-camera>
-    </a-entity>
+    <a-camera id="camera" zoom="1" user-height="0" ></a-camera>
 </a-scene>
 <script>
   var promise = document.querySelector('#sams').play();
@@ -90,14 +95,17 @@
     promise.catch(error => {
       console.log("CACTH");
 
-      window.addEventListener('click', function () {
-        var v = document.querySelector('#sams');
-        v.play();
-      });
-
-  }).then(() => {
-      // Auto-play started
+    window.addEventListener('click', function () {
+      var v = document.querySelector('#sams');
+      v.play();
     });
+
+  }).
+    then(() => {
+      // Auto-play started
+    }
+  )
+    ;
   }
 
   document.addEventListener('fullscreenchange', exitHandler, false);
@@ -105,16 +113,47 @@
   document.addEventListener('MSFullscreenChange', exitHandler, false);
   document.addEventListener('webkitfullscreenchange', exitHandler, false);
 
-  function exitHandler()
-  {
-    if (document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement !== null)
-    {
-      console.log('EXIT FULLSCREEN');
-      //var camera = document.getElementById('camera');
-      //camera.setAttribute('zoom' , '1');
-      //camera.setAttribute('user-height' , '0');
+  function getCamera(){
+    var camera = document.getElementById('camera');
+    camera.setAttribute('zoom', '1');
+    camera.setAttribute('user-height', '0');
+    console.log(camera, camera.getAttributeNames());
+
+    var print = '';
+    for (var at of camera.getAttributeNames()) {
+      var obj = camera.getAttribute(at);
+      console.log(at, 'obj: ', obj);
+      switch (at) {
+        case 'camera':
+        case 'position':
+        case 'rotation':
+        case 'look-controls':
+        case 'wasd-controls':
+          for(var child of Object.keys(obj)){
+            console.log('CHILD ' , child);
+
+            print += at+'->'+child+': ' + obj[child] + ',<br>';
+          }
+          break;
+
+        default:
+          print += at + ': ' + camera.getAttribute(at).toString() + ',<br><br>';
+          break;
+      }
+
+    }
+
+    document.getElementById('playbutton_1').innerHTML = print;
+  }
+
+  function exitHandler() {
+    if (document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement !== null) {
+      getCamera();
+
     }
   }
+
+  getCamera();
 
   /*
   document.querySelector('#btnVideo')
@@ -126,7 +165,6 @@
     });
 
    */
-
 
 
 </script>
