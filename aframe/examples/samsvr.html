@@ -45,7 +45,7 @@
     </script>
 </head>
 <body>
-<a id="playbutton_1" href="#">Test 1</a>
+<a id="playbutton_1" href="#">Test 2</a>
 <a-scene cursor="rayOrigin: mouse">
     <a-assets>
         <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/test6.mp4"> </video>
@@ -79,7 +79,7 @@
 
     <a-sky src="#sams" rotation="0 90 0"></a-sky>
 
-    <a-camera></a-camera>
+    <a-camera id="camera" zoom="1"></a-camera>
 </a-scene>
 <script>
   var promise = document.querySelector('#sams').play();
@@ -97,6 +97,20 @@
     });
   }
 
+  document.addEventListener('fullscreenchange', exitHandler, false);
+  document.addEventListener('mozfullscreenchange', exitHandler, false);
+  document.addEventListener('MSFullscreenChange', exitHandler, false);
+  document.addEventListener('webkitfullscreenchange', exitHandler, false);
+
+  function exitHandler()
+  {
+    if (document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement !== null)
+    {
+      console.log('EXIT FULLSCREEN');
+      var camera = document.getElementById('camera');
+      camera.setAttribute('zoom' , '1');
+    }
+  }
 
   /*
   document.querySelector('#btnVideo')
