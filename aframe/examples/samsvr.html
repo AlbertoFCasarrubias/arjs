@@ -87,7 +87,7 @@
     </script>
 </head>
 <body>
-<div id="playbutton_1" >Test</div>
+<div id="playbutton_1" >Test 2</div>
 <a-scene cursor="rayOrigin: mouse" id="scene" scenelistener>
     <a-assets>
         <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/test6.mp4"></video>
@@ -127,7 +127,7 @@
 
     <!--a-camera id="camera" ></a-camera-->
     <a-entity id="cam-desktop" position="0 1.6 0"  camera="userHeight: 1.6; zoom:1;active:true" look-controls wasd-controls mouse-cursor></a-entity>
-    <a-entity id="cam-vr" camera="userHeight: 1.6; zoom:1;active:false " look-controls>
+    <a-entity id="cam-vr" camera="userHeight: 1.6; zoom:1;active:false " look-controls wasd-controls mouse-cursor>
         <a-entity
                 animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
                 animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
