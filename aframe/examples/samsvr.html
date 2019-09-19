@@ -44,11 +44,42 @@
         })
         }
       });
+
+      AFRAME.registerComponent("scenelistener",
+        {
+            init: function () {
+              let vrcam = document.querySelector("#cam-vr");
+              let dcam = document.querySelector("#cam-desktop");
+              let  vrmode = false;
+
+              this.el.sceneEl.addEventListener('enter-vr',function(){
+                if(!vrmode){
+                  console.log('enter-vr');
+                  dcam.setAttribute('active',false);
+                  vrcam.setAttribute('active',true);
+                  vrmode!=vrmode;
+                }
+              });
+
+              this.el.sceneEl.addEventListener('exit-vr',function(){
+                if(vrmode){
+                  console.log('exit-vr');
+                  dcam.setAttribute('active',true);
+                  vrcam.setAttribute('active',false);
+                  vrmode!=vrmode;
+                }
+              });
+            }
+        });
+
+
+
+
     </script>
 </head>
 <body>
 <!--div id="playbutton_1" >Test 8</div-->
-<a-scene cursor="rayOrigin: mouse" id="scene">
+<a-scene cursor="rayOrigin: mouse" id="scene" scenelistener>
     <a-assets>
         <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/test6.mp4"></video>
         <video id="cakeVideo" poster="assets/still_video.png" autoplay loop src="assets/cake.mp4"></video>
@@ -85,7 +116,9 @@
 
     <a-sky src="#sams" rotation="0 90 0"></a-sky>
 
-    <a-camera id="camera" ></a-camera>
+    <!--a-camera id="camera" ></a-camera-->
+    <a-entity position="0 1.6 0" id="cam-desktop" camera="userHeight: 1.6; zoom:1;active:true" look-controls wasd-controls mouse-cursor></a-entity>
+    <a-entity id="cam-vr" camera="userHeight: 1.6; zoom:1;active:false " look-controls>
 </a-scene>
 <script>
     var exitFullscreen = false;
@@ -106,12 +139,12 @@
   )
     ;
   }
-
+/*
   document.addEventListener('fullscreenchange', exitHandler, false);
   document.addEventListener('mozfullscreenchange', exitHandler, false);
   document.addEventListener('MSFullscreenChange', exitHandler, false);
   document.addEventListener('webkitfullscreenchange', exitHandler, false);
-
+*/
   function setCamera(){
     var camera = document.getElementById('camera');
     camera.setAttribute('position' , '0 1.6 0')
@@ -125,7 +158,7 @@
 
   }
 
-  setCamera();
+ // setCamera();
 
   function getCamera(){
     var camera = document.getElementById('camera');
@@ -159,6 +192,7 @@
 
     if ((document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement !== null) && exitFullscreen) {
       console.log('EXIT');
+      /*
       var camera = document.getElementById('camera');
       //camera.removeAttribute('wasd-controls');
       //camera.removeAttribute('look-controls');
@@ -171,14 +205,17 @@
       var scene = document.getElementById('scene');
       scene.appendChild(newCamera);
       setCamera();
+      getCamera();*/
       exitFullscreen = false;
-      getCamera();
+
+      var scene = document.getElementById('scene');
+      scene.reload();
     } else {
       exitFullscreen = true;
     }
   }
 
-  getCamera();
+  //getCamera();
 
   /*
 
