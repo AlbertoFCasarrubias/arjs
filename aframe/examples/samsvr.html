@@ -50,7 +50,9 @@
             init: function () {
               let vrcam = document.querySelector("#cam-vr");
               let dcam = document.querySelector("#cam-desktop");
+
               vrcam.setAttribute('visible', false);
+              vrcam.setAttribute('camera','active',false);
               let  vrmode = false;
 
               this.el.sceneEl.addEventListener('enter-vr',function(){
@@ -87,7 +89,7 @@
     </script>
 </head>
 <body>
-<div id="playbutton_1" >Test 3</div>
+<div id="playbutton_1" >Test 4</div>
 <a-scene cursor="rayOrigin: mouse" id="scene" scenelistener>
     <a-assets>
         <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/test6.mp4"></video>
@@ -129,12 +131,13 @@
     <a-entity id="cam-desktop" position="0 1.6 0"  camera="userHeight: 1.6; zoom:1;active:true" look-controls wasd-controls mouse-cursor></a-entity>
     <a-entity id="cam-vr" camera="userHeight: 1.6; zoom:1;active:false " look-controls wasd-controls mouse-cursor>
         <a-entity
-                animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
-                animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
-                animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
+                animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.01 0.01 0.01; to: .05 .05 .05"
+                animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: .05 .05 .05; to: 0.01 0.01 0.01"
+                animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: .05 .05 .05"
                 cursor="fuse: true;"
                 material="color: black; shader: flat"
-                position="0 0 -3"
+                position="0 0 -1"
+                scale = ".05 .05 .05"
                 geometry="primitive: ring"></a-entity>
     </a-entity>
 </a-scene>
