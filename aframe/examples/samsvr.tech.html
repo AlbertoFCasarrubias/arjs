@@ -101,11 +101,11 @@
     </script>
 </head>
 <body>
-<div id="playbutton_1" >Test 1</div>
+<div id="playbutton_1" >Test 2</div>
 <a-scene cursor="rayOrigin: mouse" id="scene" scenelistener>
     <a-assets>
         <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/tech/sky.mp4"></video>
-        <video id="cakeVideo" poster="assets/still_video.png" autoplay loop src="assets/tech/video.mp4"></video>
+        <video id="cakeVideo" poster="assets/still_video.png"  loop src="assets/tech/video.mp4"></video>
         <img id="specs" src="assets/tech/techSpecs.png">
         <img id="fondo" src="assets/ficha.png">
         <img id="circle" src="assets/tech/base.png">
@@ -118,10 +118,10 @@
 
     <!-- Using the asset management system. -->
 
-    <a-image position="3.1 1.44 0.064" rotation="0 -90 0" width="4.4" height="3.1" src="#videoPlayer"></a-image>
-    <a-image id="still" position="2.9 1.1 0.05" rotation="0 -90 0" width="3.6" height="2" src="#videoStill"
+    <a-image position="4.1 1.44 0.064" rotation="0 -90 0" width="4.4" height="3.1" src="#videoPlayer"></a-image>
+    <a-image id="still" position="3.9 1.1 0.05" rotation="0 -90 0" width="3.6" height="2" src="#videoStill"
              playvideo></a-image>
-    <a-video id="videoPlay" src="#cakeVideo" poster="assets/still_video.png" width="3.6" height="2" position="3 1.1 .05"
+    <a-video id="videoPlay" src="#cakeVideo" poster="assets/still_video.png" width="3.6" height="2" position="4 1.1 .05"
              rotation="0 -90 0"></a-video>
 
     <a-curvedimage src="#banner" width="2" height="2" radius="2" theta-length="80" position="-1 1.5 0"
