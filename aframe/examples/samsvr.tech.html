@@ -33,14 +33,34 @@
         }
       });
 
-      AFRAME.registerComponent("playvideo", {
+      AFRAME.registerComponent("bose", {
         init: function () {
           this.el.addEventListener("click", (e) => {
-            const elem = document.getElementById("cakeVideo");
-          elem.play();
+            var win = window.open('https://www.sams.com.mx/home-theater/barra-de-sonido-bose-soundtouch-2-1-canales/980003083', '_blank');
+          win.focus();
+        })
+        }
+      });
 
+      AFRAME.registerComponent("playvideo", {
+        init: function () {
           const still = document.getElementById("still");
-          still.setAttribute("visible", false);
+          let video = document.getElementById("cakeVideo");
+          let play = false;
+
+          this.el.addEventListener("click", (e) => {
+            if(play){
+              video.play();
+              play = false;
+              still.setAttribute("visible", false);
+            }
+            else{
+              video.pause();
+              still.setAttribute("visible", true);
+              play = true;
+        }
+
+
         })
         }
       });
@@ -101,17 +121,18 @@
     </script>
 </head>
 <body>
-<div id="playbutton_1" >Test 5</div>
+<div id="playbutton_1" >Test 7</div>
 <a-scene cursor="rayOrigin: mouse" id="scene" scenelistener>
     <a-assets>
         <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/tech/beach.mp4"></video>
-        <video id="cakeVideo" poster="assets/still_video.png"  loop src="assets/tech/video.mp4"></video>
+        <video id="cakeVideo" poster="assets/tech/still.png"  loop src="assets/tech/video.mp4"></video>
         <img id="specs" src="assets/tech/techSpecs.png">
         <img id="fondo" src="assets/ficha.png">
         <img id="circle" src="assets/tech/base.png">
         <img id="btnVideo" src="assets/bnVideo.png">
         <img id="icon" src="assets/icon.png">
-        <img id="banner" src="assets/tech/comparison.png">
+        <img id="comparison" src="assets/tech/comparison.png">
+        <img id="banner" src="assets/tech/banner.png">
         <img id="videoPlayer" src="assets/tech/player.png">
         <img id="videoStill" src="assets/tech/still.png">
     </a-assets>
@@ -120,14 +141,16 @@
 
     <a-image position="4.1 1.44 0.064" rotation="0 -90 0" width="4.4" height="3.1" src="#videoPlayer"></a-image>
     <a-image id="still" position="3.9 1.1 0.05" rotation="0 -90 0" width="3.6" height="2" src="#videoStill"
-             playvideo></a-image>
+             playvideo ></a-image>
     <a-video id="videoPlay" src="#cakeVideo" poster="assets/still_video.png" width="3.6" height="2" position="4 1.1 .05"
-             rotation="0 -90 0"></a-video>
+             rotation="0 -90 0"  ></a-video>
 
+    <a-curvedimage src="#comparison" width="2" height="2" radius="2" theta-length="80" position="0 1.5 1.8"
+                   rotation="0 -40 0" ></a-curvedimage>
     <a-curvedimage src="#banner" width="2" height="2" radius="2" theta-length="80" position="-1 1.5 0"
-                   rotation="0 -130 0"></a-curvedimage>
-    <a-curvedimage src="#specs" width="2" height="2" radius="2" theta-length="80" position="0 1.5 -1"
-                   rotation="0 -220 0" sams></a-curvedimage>
+                   rotation="0 -130 0" bose></a-curvedimage>
+    <a-curvedimage src="#specs" width="2" height="2" radius="5" theta-length="40" position="0 1.5 1.8"
+                   rotation="0 -200 0" sams></a-curvedimage>
 
     <a-image src="#circle" position="0 -2 0" width="6" height="6" rotation="-90 0 0"></a-image>
 
