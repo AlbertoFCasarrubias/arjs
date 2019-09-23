@@ -35,12 +35,23 @@
 
       AFRAME.registerComponent("playvideo", {
         init: function () {
-          this.el.addEventListener("click", (e) => {
-            const elem = document.getElementById("cakeVideo");
-          elem.play();
-
           const still = document.getElementById("still");
-          still.setAttribute("visible", false);
+          let video = document.getElementById("cakeVideo");
+          let play = false;
+
+          this.el.addEventListener("click", (e) => {
+            if(play){
+              video.play();
+              play = false;
+              still.setAttribute("visible", false);
+            }
+            else{
+              video.pause();
+          still.setAttribute("visible", true);
+          play = true;
+        }
+
+
         })
         }
       });
@@ -101,7 +112,7 @@
     </script>
 </head>
 <body>
-<div id="playbutton_1" >Test 7</div>
+<!--div id="playbutton_1" >Test 7</div-->
 <a-scene cursor="rayOrigin: mouse" id="scene" scenelistener>
     <a-assets>
         <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/test6.mp4"></video>
