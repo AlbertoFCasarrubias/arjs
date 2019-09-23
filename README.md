@@ -1,8 +1,9 @@
 
  # AR.js - Augmented Reality for the Web
+ - [SAMS VR CAKE](https://yaotzin68.github.io/arjs/aframe/examples/samsvr.html)
+ - [SAMS VR TECH](https://yaotzin68.github.io/arjs/aframe/examples/samsvr.tech.html)
  - [SAMS](https://yaotzin68.github.io/arjs/aframe/examples/sams.html)
- - [SAMS AR Lens](https://yaotzin68.github.io/arjs/aframe/examples/samsARBlack.html)
- - [SAMS VR](https://yaotzin68.github.io/arjs/aframe/examples/samsvr.html)
+ - [SAMS AR Lens](https://yaotzin68.github.io/arjs/aframe/examples/samsARBlack.html) 
  - [VR Test](https://yaotzin68.github.io/vr/index.html)
  - [VR Test SAMS](https://yaotzin68.github.io/vr/sams1.html)
  - [SAMS Lens](https://yaotzin68.github.io/arjs/aframe/examples/samsBlack.html)
