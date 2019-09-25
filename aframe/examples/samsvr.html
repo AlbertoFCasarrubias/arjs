@@ -63,9 +63,10 @@
  		                        alpha: true
               });*/
 
-              let vrcam = document.querySelector("#cam-vr");
-              let dcam = document.querySelector("#cam-desktop");
-              let renderer = this.el.renderer;
+              const vrcam = document.querySelector("#cam-vr");
+              const dcam = document.querySelector("#cam-desktop");
+              const renderer = this.el.renderer;
+              const pixelRatio = renderer.getPixelRatio();
 
               vrcam.setAttribute('visible', false);
               vrcam.setAttribute('camera','active',false);
@@ -100,6 +101,7 @@
                     dcam.setAttribute('visible', true);
 
                     //renderer.setPixelRatio(window.devicePixelRatio)
+                    renderer.setPixelRatio(pixelRatio);
                     document.getElementById('playbutton_1').innerHTML = 'PIXEL RATIO: '+renderer.getPixelRatio();
                   }, 500);
 
@@ -114,7 +116,7 @@
     </script>
 </head>
 <body>
-<div id="playbutton_1" >Test 8</div>
+<div id="playbutton_1" >Test 9</div>
 <a-scene cursor="rayOrigin: mouse" id="scene" scenelistener>
     <a-assets>
         <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/test6.mp4"></video>
