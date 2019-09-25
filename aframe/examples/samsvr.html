@@ -93,9 +93,11 @@
               this.el.sceneEl.addEventListener('exit-vr',function(){
                 if(vrmode){
                   setTimeout( ()=> {
-
-                    dcam.setAttribute('camera','active',true);
                     vrcam.setAttribute('camera','active',false);
+                    dcam.setAttribute('camera','active',true);
+                    dcam.setAttribute('position','0 1.6 0');
+                    dcam.setAttribute('camera','userHeight', 1.6);
+
                     //dcam.setAttribute('camera','zoom',1);
 
                     vrcam.setAttribute('visible', false);
@@ -117,7 +119,7 @@
     </script>
 </head>
 <body>
-<div id="playbutton_1" >Test 10</div>
+<div id="playbutton_1" >Test 11</div>
 <a-scene cursor="rayOrigin: mouse" id="scene" scenelistener>
     <a-assets>
         <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/test6.mp4"></video>
