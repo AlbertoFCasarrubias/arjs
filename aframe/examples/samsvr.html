@@ -56,20 +56,23 @@
         }
       });
 
-      AFRAME.registerComponent("scenelistener",
-        {
+      AFRAME.registerComponent("scenelistener", {
             init: function () {
-              var renderer	= new THREE.WebGLRenderer({
+              /*var renderer	= new THREE.WebGLRenderer({
  		                        antialias	: true,
  		                        alpha: true
-              });
+              });*/
 
               let vrcam = document.querySelector("#cam-vr");
               let dcam = document.querySelector("#cam-desktop");
+              let renderer = this.el.renderer;
 
               vrcam.setAttribute('visible', false);
               vrcam.setAttribute('camera','active',false);
               let  vrmode = false;
+
+              document.getElementById('playbutton_1').innerHTML = 'PIXEL RATIO: '+renderer.getPixelRatio();
+              console.log('************ RENDERER', this.el.renderer , renderer.getPixelRatio());
 
               this.el.sceneEl.addEventListener('enter-vr',function(){
                 if(!vrmode){
@@ -79,6 +82,7 @@
 
                   vrcam.setAttribute('visible', true);
                   dcam.setAttribute('visible', false);
+                  document.getElementById('playbutton_1').innerHTML = 'PIXEL RATIO: '+renderer.getPixelRatio();
 
                   vrmode = !vrmode;
                 }
@@ -95,7 +99,8 @@
                     vrcam.setAttribute('visible', false);
                     dcam.setAttribute('visible', true);
 
-                    renderer.setPixelRatio(window.devicePixelRatio)
+                    //renderer.setPixelRatio(window.devicePixelRatio)
+                    document.getElementById('playbutton_1').innerHTML = 'PIXEL RATIO: '+renderer.getPixelRatio();
                   }, 500);
 
 
@@ -106,13 +111,10 @@
             }
         });
 
-
-
-
     </script>
 </head>
 <body>
-<!--div id="playbutton_1" >Test 7</div-->
+<div id="playbutton_1" >Test 8</div>
 <a-scene cursor="rayOrigin: mouse" id="scene" scenelistener>
     <a-assets>
         <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/test6.mp4"></video>
