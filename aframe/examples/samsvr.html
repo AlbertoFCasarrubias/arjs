@@ -72,8 +72,8 @@
               vrcam.setAttribute('camera','active',false);
               let  vrmode = false;
 
-              document.getElementById('playbutton_1').innerHTML = 'PIXEL RATIO: '+renderer.getPixelRatio();
-              console.log('************ RENDERER', this.el.renderer , renderer.getPixelRatio());
+              document.getElementById('playbutton_1').innerHTML = 'PIXEL RATIO: '+renderer.getPixelRatio()+ '\n ZOOM: '+dcam.getAttribute('camera').zoom;
+              console.log('************ CAM', dcam.getAttribute('camera'));
 
               this.el.sceneEl.addEventListener('enter-vr',function(){
                 if(!vrmode){
@@ -83,7 +83,7 @@
 
                   vrcam.setAttribute('visible', true);
                   dcam.setAttribute('visible', false);
-                  document.getElementById('playbutton_1').innerHTML = 'PIXEL RATIO: '+renderer.getPixelRatio();
+                  document.getElementById('playbutton_1').innerHTML = 'PIXEL RATIO: '+renderer.getPixelRatio() + '\n ZOOM: '+dcam.getAttribute('camera').zoom;
 
                   vrmode = !vrmode;
                 }
@@ -93,16 +93,17 @@
               this.el.sceneEl.addEventListener('exit-vr',function(){
                 if(vrmode){
                   setTimeout( ()=> {
+
                     dcam.setAttribute('camera','active',true);
-                    dcam.setAttribute('camera','zoom',1);
                     vrcam.setAttribute('camera','active',false);
+                    //dcam.setAttribute('camera','zoom',1);
 
                     vrcam.setAttribute('visible', false);
                     dcam.setAttribute('visible', true);
 
                     //renderer.setPixelRatio(window.devicePixelRatio)
                     renderer.setPixelRatio(pixelRatio);
-                    document.getElementById('playbutton_1').innerHTML = 'PIXEL RATIO: '+renderer.getPixelRatio();
+                    document.getElementById('playbutton_1').innerHTML = 'PIXEL RATIO: '+renderer.getPixelRatio()+ '\n ZOOM: '+dcam.getAttribute('camera').zoom;
                   }, 500);
 
 
@@ -116,7 +117,7 @@
     </script>
 </head>
 <body>
-<div id="playbutton_1" >Test 9</div>
+<div id="playbutton_1" >Test 10</div>
 <a-scene cursor="rayOrigin: mouse" id="scene" scenelistener>
     <a-assets>
         <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/test6.mp4"></video>
