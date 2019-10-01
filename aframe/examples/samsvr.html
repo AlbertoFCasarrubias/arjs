@@ -15,6 +15,14 @@
         }
     </style>
     <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-104804867-5', 'auto');
+      ga('send', 'pageview', location.pathname);
+
       AFRAME.registerComponent("foo", {
         init: function () {
           this.el.addEventListener("click", (e) => {
@@ -27,6 +35,7 @@
       AFRAME.registerComponent("sams", {
         init: function () {
           this.el.addEventListener("click", (e) => {
+            ga('send', 'event', 'pastel', 'venta cruzada', 'platos desechables');
             var win = window.open('https://www.sams.com.mx/desechables-e-insumos/platos-desechables-bosco-chicos-180-pzas/000369744?sp=platos', '_blank');
           win.focus();
         })
@@ -41,15 +50,17 @@
 
           this.el.addEventListener("click", (e) => {
             if(play){
+              ga('send', 'event', 'pastel', 'video', 'play');
               video.play();
               play = false;
               still.setAttribute("visible", false);
             }
             else{
+              ga('send', 'event', 'pastel', 'video', 'pause');
               video.pause();
-          still.setAttribute("visible", true);
-          play = true;
-        }
+              still.setAttribute("visible", true);
+              play = true;
+            }
 
 
         })
@@ -73,8 +84,6 @@
               let  vrmode = false;
 
               document.getElementById('playbutton_1').innerHTML = 'PIXEL RATIO: '+renderer.getPixelRatio()+ '\n ZOOM: '+dcam.getAttribute('camera').zoom;
-              console.log('************ CAM', dcam.getAttribute('camera'));
-              console.log('************ RENDERER', renderer);
 
               this.el.sceneEl.addEventListener('enter-vr',function(){
                 if(!vrmode){
@@ -87,8 +96,9 @@
                   document.getElementById('playbutton_1').innerHTML = 'PIXEL RATIO: '+renderer.getPixelRatio() + '\n ZOOM: '+dcam.getAttribute('camera').zoom;
 
                   vrmode = !vrmode;
+                  ga('send', 'event', 'pastel', 'vrmode', 'enter');
                 }
-                console.log('enter-vr ' , vrmode);
+
               });
 
               this.el.sceneEl.addEventListener('exit-vr',function(){
@@ -111,12 +121,13 @@
                     //renderer.setPixelRatio(window.devicePixelRatio)
                     renderer.setPixelRatio(pixelRatio);
                     document.getElementById('playbutton_1').innerHTML = 'PIXEL RATIO: '+renderer.getPixelRatio()+ '\n ZOOM: '+dcam.getAttribute('camera').zoom;
+                    ga('send', 'event', 'pastel', 'vrmode', 'exit');
                   }, 500);
 
 
                   vrmode = !vrmode;
                 }
-                console.log('exit-vr ' , vrmode);
+
               });
             }
         });
@@ -124,7 +135,7 @@
     </script>
 </head>
 <body>
-<div id="playbutton_1" >Test 12</div>
+<!--div id="playbutton_1" >Test 12</div-->
 <a-scene cursor="rayOrigin: mouse" id="scene" scenelistener>
     <a-assets>
         <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/test6.mp4"></video>
@@ -321,5 +332,9 @@ wasd-controls->wsInverted: false,
 
 
 </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
 </body>
 </html>

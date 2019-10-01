@@ -15,6 +15,14 @@
         }
     </style>
     <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-104804867-5', 'auto');
+      ga('send', 'pageview', location.pathname);
+
       AFRAME.registerComponent("foo", {
         init: function () {
           this.el.addEventListener("click", (e) => {
@@ -27,6 +35,7 @@
       AFRAME.registerComponent("sams", {
         init: function () {
           this.el.addEventListener("click", (e) => {
+            ga('send', 'event', 'tech', 'venta cruzada', 'pantalla-lg-65-pulgadas');
             var win = window.open('https://www.sams.com.mx/pantallas/pantalla-lg-65-pulgadas-4k-smart-tv-ai-thinq/980012790', '_blank');
           win.focus();
         })
@@ -36,6 +45,7 @@
       AFRAME.registerComponent("bose", {
         init: function () {
           this.el.addEventListener("click", (e) => {
+            ga('send', 'event', 'tech', 'venta cruzada', 'barra-de-sonido-bose-soundtouch');
             var win = window.open('https://www.sams.com.mx/home-theater/barra-de-sonido-bose-soundtouch-2-1-canales/980003083', '_blank');
           win.focus();
         })
@@ -53,10 +63,12 @@
               video.play();
               play = false;
               still.setAttribute("visible", false);
+              ga('send', 'event', 'tech', 'video', 'play');
             }
             else{
               video.pause();
               still.setAttribute("visible", true);
+              ga('send', 'event', 'tech', 'video', 'pause');
               play = true;
         }
 
@@ -90,6 +102,7 @@
                   dcam.setAttribute('visible', false);
 
                   vrmode = !vrmode;
+                  ga('send', 'event', 'tech', 'vrmode', 'enter');
                 }
                 console.log('enter-vr ' , vrmode);
               });
@@ -105,6 +118,7 @@
                     dcam.setAttribute('visible', true);
 
                     renderer.setPixelRatio(window.devicePixelRatio)
+                    ga('send', 'event', 'tech', 'vrmode', 'exit');
                   }, 500);
 
 
@@ -316,5 +330,6 @@ wasd-controls->wsInverted: false,
 
 
 </script>
+
 </body>
 </html>
