@@ -1,0 +1,367 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
+    <style>
+        #playbutton_1 {
+            position: fixed;
+            z-index: 999;
+            width: auto;
+            height: auto;
+            background: rgba(255,255,255,.6);
+        }
+    </style>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-104804867-5', 'auto');
+      ga('send', 'pageview', location.pathname);
+
+      AFRAME.registerComponent("foo", {
+        init: function () {
+          const paso1 = document.getElementById("paso1_img");
+          const paso2 = document.getElementById("paso2_img");
+          const paso3 = document.getElementById("paso3_img");
+
+          let paso = 1;
+
+          paso1.setAttribute("visible", true);
+          paso2.setAttribute("visible", false);
+          paso3.setAttribute("visible", false);
+
+          this.el.addEventListener("click", (e) => {
+
+          paso++;
+          if (paso > 3) {
+            paso = 1;
+          }
+
+          console.log('paso ', paso);
+
+          paso1.setAttribute("visible", false);
+          paso2.setAttribute("visible", false);
+          paso3.setAttribute("visible", false);
+
+          switch (paso) {
+            case 1:
+              paso1.setAttribute("visible", true);
+              break;
+
+            case 2:
+              paso2.setAttribute("visible", true);
+              break;
+
+            case 3:
+              paso3.setAttribute("visible", true);
+              break;
+          }
+
+          ga('send', 'event', 'grill', 'paso', paso);
+
+        })
+        }
+      });
+
+      AFRAME.registerComponent("sams", {
+        init: function () {
+          this.el.addEventListener("click", (e) => {
+            ga('send', 'event', 'tech', 'venta cruzada', 'pantalla-lg-65-pulgadas');
+            var win = window.open('https://www.sams.com.mx/pantallas/pantalla-lg-65-pulgadas-4k-smart-tv-ai-thinq/980012790', '_blank');
+          win.focus();
+        })
+        }
+      });
+
+      AFRAME.registerComponent("bose", {
+        init: function () {
+          this.el.addEventListener("click", (e) => {
+            ga('send', 'event', 'tech', 'venta cruzada', 'barra-de-sonido-bose-soundtouch');
+            var win = window.open('https://www.sams.com.mx/home-theater/barra-de-sonido-bose-soundtouch-2-1-canales/980003083', '_blank');
+          win.focus();
+        })
+        }
+      });
+
+      AFRAME.registerComponent("playvideo", {
+        init: function () {
+          const still = document.getElementById("still");
+          let video = document.getElementById("cakeVideo");
+          let play = false;
+
+          this.el.addEventListener("click", (e) => {
+            if(play){
+              video.play();
+              play = false;
+              still.setAttribute("visible", false);
+              ga('send', 'event', 'tech', 'video', 'play');
+            }
+            else{
+              video.pause();
+              still.setAttribute("visible", true);
+              ga('send', 'event', 'tech', 'video', 'pause');
+              play = true;
+            }
+        })
+        }
+      });
+
+      AFRAME.registerComponent("scenelistener",
+        {
+            init: function () {
+              var renderer	= new THREE.WebGLRenderer({
+ 		                        antialias	: true,
+ 		                        alpha: true
+              });
+
+              let vrcam = document.querySelector("#cam-vr");
+              let dcam = document.querySelector("#cam-desktop");
+
+              vrcam.setAttribute('visible', false);
+              vrcam.setAttribute('camera','active',false);
+              let  vrmode = false;
+
+              this.el.sceneEl.addEventListener('enter-vr',function(){
+                if(!vrmode){
+                  dcam.setAttribute('camera','active',false);
+                  dcam.setAttribute('camera','zoom',1);
+                  vrcam.setAttribute('camera','active',true);
+
+                  vrcam.setAttribute('visible', true);
+                  dcam.setAttribute('visible', false);
+
+                  vrmode = !vrmode;
+                  ga('send', 'event', 'tech', 'vrmode', 'enter');
+                }
+                console.log('enter-vr ' , vrmode);
+              });
+
+              this.el.sceneEl.addEventListener('exit-vr',function(){
+                if(vrmode){
+                  setTimeout( ()=> {
+                    dcam.setAttribute('camera','active',true);
+                    dcam.setAttribute('camera','zoom',1);
+                    vrcam.setAttribute('camera','active',false);
+
+                    vrcam.setAttribute('visible', false);
+                    dcam.setAttribute('visible', true);
+
+                    renderer.setPixelRatio(window.devicePixelRatio)
+                    ga('send', 'event', 'tech', 'vrmode', 'exit');
+                  }, 500);
+
+
+                  vrmode = !vrmode;
+                }
+                console.log('exit-vr ' , vrmode);
+              });
+            }
+        });
+
+
+
+
+    </script>
+</head>
+<body>
+<!--div id="playbutton_1" >Test 7</div-->
+<a-scene cursor="rayOrigin: mouse" id="scene" scenelistener>
+    <a-assets>
+        <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/grill/sky.mp4"></video>
+        <video id="cakeVideo" poster="assets/tech/still.png"  loop src="assets/grill/video.mp4"></video>
+        <img id="circle" src="assets/grill/icon.png">
+        <img id="icon" src="assets/icon.png">
+        <img id="calcula" src="assets/grill/calcula.png">
+        <img id="paso1" src="assets/grill/paso1.jpg">
+        <img id="paso2" src="assets/grill/paso2.jpg">
+        <img id="paso3" src="assets/grill/paso3.jpg">
+        <img id="banner" src="assets/grill/banner.jpg">
+        <img id="videoPlayer" src="assets/grill/player.png">
+        <img id="videoStill" src="assets/grill/still.png">
+    </a-assets>
+
+    <!-- Using the asset management system. -->
+
+    <a-image position="4.1 1.44 0.064" rotation="0 -90 0" width="5" height="3.4" src="#videoPlayer"></a-image>
+    <a-image id="still" position="3.9 0.7 0.05" rotation="0 -90 0" width="2.8" height="1.55" src="#videoStill"
+             playvideo ></a-image>
+    <a-video id="videoPlay" src="#cakeVideo" poster="assets/still_video.png" width="2.8" height="1.55"
+             position="4 0.7 .05" rotation="0 -90 0"  ></a-video>
+    <a-entity id="grillExpert" position="0 1.5 -5" rotation="0 0 0" foo>
+        <a-image position="0 3.2 0.3" rotation="0 0 0" width="3" height="1.66" src="#calcula"></a-image>
+        <a-image id="paso1_img" position="0 0 0" rotation="0 0 0" width="2.27" height="5" src="#paso1"></a-image>
+        <a-image id="paso2_img" position="0 0 0" rotation="0 0 0" width="2.27" height="5" src="#paso2"></a-image>
+        <a-image id="paso3_img" position="0 0 0" rotation="0 0 0" width="2.27" height="5" src="#paso3"></a-image>
+    </a-entity>
+
+    <a-image src="#circle" position="0 -2 -3" width="6" height="6" rotation="-90 0 0"></a-image>
+
+
+    <a-sky src="#sams" rotation="0 -90 0"></a-sky>
+
+    <a-entity id="cam-desktop" position="0 1.6 0"  camera="userHeight: 1.6; zoom:1;active:true" look-controls wasd-controls mouse-cursor></a-entity>
+    <a-entity id="cam-vr" camera="userHeight: 1.6; zoom:1;active:false " look-controls wasd-controls mouse-cursor>
+        <a-entity
+                animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.01 0.01 0.01; to: .05 .05 .05"
+                animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: .05 .05 .05; to: 0.01 0.01 0.01"
+                animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: .05 .05 .05"
+                cursor="fuse: true;"
+                material="color: black; shader: flat"
+                position="0 0 -1"
+                scale = ".05 .05 .05"
+                geometry="primitive: ring"></a-entity>
+    </a-entity>
+</a-scene>
+<script>
+    var exitFullscreen = false;
+  var promise = document.querySelector('#sams').play();
+  if (promise !== undefined) {
+    promise.catch(error => {
+      console.log("CACTH");
+
+    window.addEventListener('click', function () {
+      var v = document.querySelector('#sams');
+      v.play();
+    });
+
+  }).
+    then(() => {
+      // Auto-play started
+    }
+  )
+    ;
+  }
+/*
+  document.addEventListener('fullscreenchange', exitHandler, false);
+  document.addEventListener('mozfullscreenchange', exitHandler, false);
+  document.addEventListener('MSFullscreenChange', exitHandler, false);
+  document.addEventListener('webkitfullscreenchange', exitHandler, false);
+*/
+  function setCamera(){
+    var camera = document.getElementById('camera');
+    camera.setAttribute('position' , '0 1.6 0')
+    //camera.setAttribute('zoom' , '1')
+    //camera.setAttribute('active' , 'true')
+    //camera.setAttribute('far' , '10000')
+    //camera.setAttribute('fov' , '80')
+    //camera.setAttribute('near' , '0.005')
+    //camera.setAttribute('spectator' , 'false')
+
+
+  }
+
+ // setCamera();
+
+  function getCamera(){
+    var camera = document.getElementById('camera');
+    console.log(camera, camera.getAttributeNames());
+
+    var print = '';
+    for (var at of camera.getAttributeNames()) {
+      var obj = camera.getAttribute(at);
+      switch (at) {
+        case 'camera':
+        case 'position':
+        case 'rotation':
+        case 'look-controls':
+        case 'wasd-controls':
+          for(var child of Object.keys(obj)){
+            print += at+'->'+child+': ' + obj[child] + ',<br>';
+          }
+          break;
+
+        default:
+          print += at + ': ' + camera.getAttribute(at).toString() + ',<br><br>';
+          break;
+      }
+
+    }
+
+   // document.getElementById('playbutton_1').innerHTML = print;
+  }
+
+  function exitHandler() {
+
+    if ((document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement !== null) && exitFullscreen) {
+      console.log('EXIT');
+      /*
+      var camera = document.getElementById('camera');
+      //camera.removeAttribute('wasd-controls');
+      //camera.removeAttribute('look-controls');
+      //camera.removeAttribute('camera');
+      camera.parentNode.removeChild(camera);
+
+      var newCamera = document.createElement("a-camera");
+      newCamera.setAttribute('id' , 'camera');
+
+      var scene = document.getElementById('scene');
+      scene.appendChild(newCamera);
+      setCamera();
+      getCamera();*/
+      exitFullscreen = false;
+
+      var scene = document.getElementById('scene');
+      scene.reload();
+    } else {
+      exitFullscreen = true;
+    }
+  }
+
+  //getCamera();
+
+  /*
+
+  id: camera,
+
+zoom: 1,
+
+user-height: 0,
+
+camera->zoom: 1,
+camera->active: true,
+camera->far: 10000,
+camera->fov: 80,
+camera->near: 0.005,
+camera->spectator: false,
+position->x: 0,
+position->y: 1.6,
+position->z: 0,
+rotation->x: 0,
+rotation->y: 0,
+rotation->z: 0,
+look-controls->enabled: true,
+look-controls->hmdEnabled: true,
+look-controls->pointerLockEnabled: false,
+look-controls->reverseMouseDrag: false,
+look-controls->reverseTouchDrag: false,
+look-controls->touchEnabled: true,
+wasd-controls->acceleration: 65,
+wasd-controls->adAxis: x,
+wasd-controls->adEnabled: true,
+wasd-controls->adInverted: false,
+wasd-controls->enabled: true,
+wasd-controls->fly: false,
+wasd-controls->wsAxis: z,
+wasd-controls->wsEnabled: true,
+wasd-controls->wsInverted: false,
+
+  document.querySelector('#btnVideo')
+    .addEventListener('click', function()
+    {
+      console.log('CLICK');
+      var win = window.open('player.html', '_blank');
+      win.focus();
+    });
+
+   */
+
+
+</script>
+
+</body>
+</html>
