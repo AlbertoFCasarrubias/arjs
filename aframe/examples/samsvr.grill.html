@@ -29,7 +29,7 @@
           const paso2 = document.getElementById("paso2_img");
           const paso3 = document.getElementById("paso3_img");
 
-          let paso = 1;
+          let paso = 0;
 
           paso1.setAttribute("visible", true);
           paso2.setAttribute("visible", false);
@@ -81,8 +81,8 @@
       AFRAME.registerComponent("bose", {
         init: function () {
           this.el.addEventListener("click", (e) => {
-            ga('send', 'event', 'tech', 'venta cruzada', 'barra-de-sonido-bose-soundtouch');
-            var win = window.open('https://www.sams.com.mx/home-theater/barra-de-sonido-bose-soundtouch-2-1-canales/980003083', '_blank');
+            ga('send', 'event', 'grill', 'venta cruzada', 'vino mendoza');
+            var win = window.open('https://www.sams.com.mx/vino-tinto/vino-tinto-malbec-member-s-mark-750-ml/980005683', '_blank');
           win.focus();
         })
         }
@@ -200,7 +200,8 @@
     </a-entity>
 
     <a-image src="#circle" position="0 -2 -3" width="6" height="6" rotation="-90 0 0"></a-image>
-
+    <a-curvedimage src="#banner" width="2" height="2" radius="2" theta-length="80" position="-1 1.5 0"
+                   rotation="0 -130 0" bose></a-curvedimage>
 
     <a-sky src="#sams" rotation="0 -90 0"></a-sky>
 
