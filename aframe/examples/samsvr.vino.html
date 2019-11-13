@@ -46,6 +46,7 @@
 
           console.log('paso ', paso);
 
+
           paso1.setAttribute("visible", false);
           paso2.setAttribute("visible", false);
           paso3.setAttribute("visible", false);
@@ -179,7 +180,7 @@
 <!--div id="playbutton_1" >Test 7</div-->
 <a-scene cursor="rayOrigin: mouse" id="scene" scenelistener>
     <a-assets>
-        <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/vinos/sky.mp4"></video>
+        <video id="sams" autoplay loop muted playsinline crossorigin="anonymous" src="assets/vinos/sky2.mp4"></video>
         <video id="cakeVideo" poster="assets/tech/still.png"  loop src="assets/grill/video.mp4"></video>
         <img id="circle" src="assets/vinos/icon.png">
         <img id="icon" src="assets/vinos/icon.png">
@@ -189,6 +190,7 @@
         <img id="paso3" src="assets/vinos/paso3.jpg">
         <img id="paso4" src="assets/vinos/paso4.jpg">
         <img id="banner" src="assets/vinos/banner_ms.jpg">
+        <img id="specs" src="assets/vinos/specs.jpg">
         <img id="maridaje" src="assets/vinos/maridaje.jpg">
         <img id="videoPlayer" src="assets/grill/player.png">
         <img id="videoStill" src="assets/grill/still.png">
@@ -209,6 +211,8 @@
 
     <a-image src="#maridaje" position="4 1.5 0" width="3.05" height="5" rotation="0 -90 0"></a-image>
 
+    <a-curvedimage src="#specs" width="2" height="2" radius="5" theta-length="40" position="0 1.5 -2.5"
+                   rotation="0 -20 0" ></a-curvedimage>
 
     <a-sky src="#sams" rotation="0 -90 0"></a-sky>
 
