@@ -20,8 +20,8 @@
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-      ////ga('create', 'UA-104804867-5', 'auto');
-      ////ga('send', 'pageview', location.pathname);
+      ga('create', 'UA-104804867-5', 'auto');
+      ga('send', 'pageview', location.pathname);
 
       AFRAME.registerComponent("foo", {
         init: function () {
@@ -70,7 +70,7 @@
               break;
           }
 
-          ////ga('send', 'event', 'grill', 'paso', paso);
+          ga('send', 'event', 'vino', 'paso', paso);
 
         })
         }
@@ -79,7 +79,7 @@
       AFRAME.registerComponent("sams", {
         init: function () {
           this.el.addEventListener("click", (e) => {
-            //ga('send', 'event', 'tech', 'venta cruzada', 'pantalla-lg-65-pulgadas');
+            ga('send', 'event', 'vino', 'venta cruzada', 'pantalla-lg-65-pulgadas');
             var win = window.open('https://www.sams.com.mx/tequila/tequila-1800-reserva-anejo-1-75-l/000711020', '_blank');
           win.focus();
         })
@@ -89,7 +89,7 @@
       AFRAME.registerComponent("bose", {
         init: function () {
           this.el.addEventListener("click", (e) => {
-            //ga('send', 'event', 'grill', 'venta cruzada', 'vino mendoza');
+            ga('send', 'event', 'vino', 'venta cruzada', 'vino mendoza');
             var win = window.open('https://www.sams.com.mx/tequila/tequila-1800-reserva-anejo-1-75-l/000711020', '_blank');
           win.focus();
         })
@@ -107,12 +107,12 @@
               video.play();
               play = false;
               still.setAttribute("visible", false);
-              //ga('send', 'event', 'tech', 'video', 'play');
+              ga('send', 'event', 'vino', 'video', 'play');
             }
             else{
               video.pause();
               still.setAttribute("visible", true);
-              //ga('send', 'event', 'tech', 'video', 'pause');
+              ga('send', 'event', 'vino', 'video', 'pause');
               play = true;
             }
         })
@@ -144,7 +144,7 @@
                   dcam.setAttribute('visible', false);
 
                   vrmode = !vrmode;
-                  //ga('send', 'event', 'tech', 'vrmode', 'enter');
+                  ga('send', 'event', 'vino', 'vrmode', 'enter');
                 }
                 console.log('enter-vr ' , vrmode);
               });
@@ -160,7 +160,7 @@
                     dcam.setAttribute('visible', true);
 
                     renderer.setPixelRatio(window.devicePixelRatio)
-                    //ga('send', 'event', 'tech', 'vrmode', 'exit');
+                    ga('send', 'event', 'vino', 'vrmode', 'exit');
                   }, 500);
 
 
